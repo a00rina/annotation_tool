@@ -2,7 +2,7 @@ from typing import List, Dict, Any
 
 
 class Document:
-    def __init__(self, id: int, content: str, source: str, lang: str = "ru"):
+    def __init__(self, id: int, content: str, source: str, lang: str = 'ru'):
         self.id = id
         self.lang = lang
         self.content = content
@@ -32,12 +32,12 @@ class Annotation:
         self.data = data
 
     def to_conllu(self) -> str:
-        return ""
+        return ''
 
 
 class Analyzer:
     def __init__(self):
-        self.name = "base"
+        self.name = 'base'
 
     def analyze(self, text: str):
         pass
@@ -47,20 +47,17 @@ class Analyzer:
 
 
 class StanzaAnalyzer(Analyzer):
-
-    def __init__(self, lang: str = "ru"):
+    def __init__(self, lang: str = 'ru'):
         super().__init__()
-        self.name = "stanza"
+        self.name = 'stanza'
         self.lang = lang
 
     def analyze(self, text: str):
         pass
 
 
-
 class Storage:
-
-    def __init__(self, db_path: str = "annotations.db"):
+    def __init__(self, db_path: str = 'annotations.db'):
         self.db_path = db_path
 
     def save_document(self, doc: Document):
@@ -70,12 +67,11 @@ class Storage:
     def save_annotation(self, annot: Annotation):
         pass
 
-    def get_documents(self, doc_id:int):
+    def get_documents(self, doc_id: int):
         return []
 
 
 class Analytics:
-
     def __init__(self, storage: Storage):
         self.storage = storage
 
